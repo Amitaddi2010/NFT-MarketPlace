@@ -1,10 +1,12 @@
 import '../styles/globals.css'
 import Link from 'next/link'
+import { NavBar } from '../components'
 
 function MyApp({ Component, pageProps }) {
   return (
     <div>
-      <nav className="border-b p-6">
+      <NavBar />
+      {/* <nav className="border-b p-6">
         <p className="text-4xl font-bold">Metaverse Marketplace</p>
         <div className="flex mt-4">
           <Link href="/">
@@ -28,7 +30,7 @@ function MyApp({ Component, pageProps }) {
             </a>
           </Link>
         </div>
-      </nav>
+      </nav> */}
       <Component {...pageProps} />
     </div>
   )
