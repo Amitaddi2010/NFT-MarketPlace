@@ -13,7 +13,7 @@ import {
 
 import NFTMarketplace from '../artifacts/contracts/nft.sol/NFTMarketplace.json'
 
-export default function CreateItem() {
+export default function sellNFTs() {
   const [fileUrl, setFileUrl] = useState(null)
   const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
   const router = useRouter()
@@ -32,7 +32,7 @@ export default function CreateItem() {
       setFileUrl(url)
     } catch (error) {
       console.log('Error uploading file: ', error)
-    }  
+    }
   }
   async function uploadToIPFS() {
     const { name, description, price } = formInput
@@ -48,7 +48,7 @@ export default function CreateItem() {
       return url
     } catch (error) {
       console.log('Error uploading file: ', error)
-    }  
+    }
   }
 
   async function listNFTForSale() {
@@ -65,14 +65,14 @@ export default function CreateItem() {
     listingPrice = listingPrice.toString()
     let transaction = await contract.createToken(url, price, { value: listingPrice })
     await transaction.wait()
-   
+
     router.push('/')
   }
 
   return (
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
-        <input 
+        <input
           placeholder="Asset Name"
           className="mt-8 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
@@ -95,8 +95,8 @@ export default function CreateItem() {
         />
         {
           fileUrl && (
-            <img className="rounded mt-4"  alt="Picture of the author" width="350px"
-            height="300px" src={fileUrl} />
+            <img className="rounded mt-4" alt="Picture of the author" width="350px"
+              height="300px" src={fileUrl} />
           )
         }
         <button onClick={listNFTForSale} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
