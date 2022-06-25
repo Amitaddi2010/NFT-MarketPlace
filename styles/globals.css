@@ -7,14 +7,31 @@
 .outfit{
 font-family: 'Outfit', sans-serif;
 }
+
+@layer base{
+    :root{
+        --bg-blue:99,88,189;
+    }
+}
 @layer components{
     .btn{
         @apply w-64 h-16 rounded-full font-outfit font-normal leading-7 text-white ;
     }
 }
 
-.home-grid-container {
+.home-grid-container-1 {
     display: grid;
     grid-template-columns: 1fr 1fr auto;
     grid-template-rows: auto auto auto;
+}
+.home-grid-container-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+}
+footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
 }

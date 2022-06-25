@@ -10,6 +10,7 @@ module.exports = {
         'primary':'#2D2879',
         'secondary':'#9091DC',
         'tert':'#191D3C',
+        'tblue':'rgba(99,88,189 , 0.19)'
       },
     },
   },
