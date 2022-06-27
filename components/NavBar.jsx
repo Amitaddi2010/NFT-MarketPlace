@@ -1,3 +1,4 @@
+import { Flipped } from 'react-flip-toolkit';
 import {Clink} from './';
 
 const data = [
@@ -12,6 +13,7 @@ const data = [
 function NavBar() {
 
   return (
+    <Flipped flipId={'nav'}>
     <nav className={`font-outfit flex justify-around pt-12 bg-tert`}>
       <div className="heading text-white text-3xl">Murals.</div>
       <ul className={'flex space-x-6 items-center'}>
@@ -24,6 +26,7 @@ function NavBar() {
         </li>
       </ul>
     </nav>
+    </Flipped>
   )
 }
 
