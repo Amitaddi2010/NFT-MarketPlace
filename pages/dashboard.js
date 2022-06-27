@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
 
@@ -9,7 +9,8 @@ import {
 
 import NFTMarketplace from '../artifacts/contracts/nft.sol/NFTMarketplace.json'
 
-export default function CreatorDashboard() {
+export default function CreatorDashboard({setDirection}) {
+
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {

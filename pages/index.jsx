@@ -1,5 +1,6 @@
-import {TeamCard} from '../components'
+import { useLayoutEffect } from 'react'
 
+import {TeamCard} from '../components'
 
 //images
 import desktop from '../public/assets/imgs/desktop.png'
@@ -10,7 +11,11 @@ import comp4 from '../public/assets/imgs/comp4.png'
 import database from '../public/assets/imgs/database.png'
 import phone from '../public/assets/imgs/phone.png'
 import Team from '../components/Team'
-function index() {
+function index({setDirection}) {
+    useLayoutEffect(()=>{
+        setDirection('row');
+        return ()=>{setDirection('col')};
+    },[])
     return (
         <div className='bg-tert px-[190px]'>
             <div className='home-grid-container-1  bg-tert pt-24 h-[90vh]'>

@@ -3,7 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{margin:0;padding: 0;box-sizing: border-box;}
 .outfit{
 font-family: 'Outfit', sans-serif;
 }
@@ -16,6 +16,11 @@ font-family: 'Outfit', sans-serif;
 @layer components{
     .btn{
         @apply w-64 h-16 rounded-full font-outfit font-normal leading-7 text-white ;
+    }
+    .sidebar-layout-container{
+        @apply grid;
+        grid-template-columns:280px auto;
+        grid-template-rows:auto auto;
     }
 }
 
