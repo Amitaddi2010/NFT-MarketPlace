@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
  
 import swal from 'sweetalert';
 import { loadAccount, loadWeb3,loadBalance } from './utils';
+import Link from 'next/link';
 
 const data = [
   { label: 'Home', path: '/' },
@@ -100,16 +101,20 @@ function NavBar() {
   return (
     <Flipped flipId={'nav'}>
     <nav className={`font-outfit flex justify-around pt-12 bg-tert`}>
-    <Flipped inverseFlipId='nav' flipId={'murals'}>
-      <div className="heading text-white text-3xl text-center">Murals.</div>
+    <Flipped   inverseFlipId='nav' flipId={'murals'}>
+      <div className='cursor-pointer ...'>
+    <Link href='/'   > 
+      <div className="heading text-white text-3xl text-center">Murals.</div></Link></div>
       </Flipped>
       <ul className={'flex space-x-6 items-center'}>
         {data.map(d => <li key={d.label}><Clink {...d} classNameActive="text-white" classNameInActive="text-link-blue"/></li>)}
         <Flipped inverseFlipId='nav' flipId={'connect'}>
         <li >
-          <div className='bg-[#2d2879] h-12 w-40 grid grid-cols-4 items-center justify-items-center rounded-full '>
-            <div className='bg-[#9091DC] h-4 w-4 rounded-full col-span-1'></div>
+          <div className='bg-[#2d2879] h-15 w-60 grid grid-cols-4 items-center justify-items-center rounded-full '>
+               <div className='bg-[#9091DC] h-4 w-4 rounded-full col-span-1'></div>
             <span className='text-white uppercase col-span-3 w-[80%] text-ellipsis overflow-hidden whitespace-nowrap  '> {account ? account : "Not Connected"}</span>
+               <div className='bg-[#9091DC] h-4 w-4 rounded-full col-span-1'></div> 
+            <span className='text-white uppercase col-span-3 w-[80%] text-ellipsis overflow-hidden whitespace-nowrap'>  {balanceAsEther}</span>
           </div>
         </li>
         </Flipped>
