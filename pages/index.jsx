@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react'
-
+ 
+ import Link from 'next/link'
 import {TeamCard} from '../components'
 
 //images
@@ -23,11 +24,14 @@ function index({setDirection}) {
                     discover and collect rare NFTs
                 </div>
                 <span className='font-normal text-lg leading-7 w-[373px] font-outfit col-span-2 col-start-1 text-white'>The most secure marketplace for buying and selling unique crypto assets.</span>
-                <button className="btn bg-secondary row-span-1 row-start-3 ">Buy NFTs</button>
-                <button className='btn bg-transparent border-solid  border-secondary border-2 row-span-1 row-start-3'>Sell NFTs</button>
+                <Link href='/marketplace'>
+                    
+                            <button className="btn bg-secondary row-span-1 row-start-3 ">Buy NFT </button>
+                 </Link>
+                <button className='btn bg-transparent border-solid  border-secondary border-2 row-span-1 row-start-3'><Link href='/sell-nfts'> Sell NFTs </Link></button>
                 <img src={desktop.src} alt="" className='row-span-full' />
             </div>
-            <div className='text-white uppercase font-semibold text-xl leading-7 text-left tracking-widest'>featured on</div>
+            <div className='text-white uppercase font-semibold text-xl leading-7 text-left tracking-widest pb-5'>featured on</div>
             <div className='flex justify-items-center justify-around items-center h-[100px] bg-tblue'>
                 <img src={comp1.src} alt="" /><img src={comp2.src} alt="" /><img src={comp3.src} alt="" /><img src={comp4.src} alt="" />
             </div>
@@ -37,7 +41,9 @@ function index({setDirection}) {
                     built-in analytics to track your nfts
                 </div>
                 <span className='font-normal text-lg leading-7 text-left tracking-normal w-[373px] font-outfit col-start-2 col-span-1 row-start-3 row-span-1 text-white'>Use our built-in analytics dashboard to pull valuable insights and monitor the value of your Krypto portfolio over time.</span>
-                <button className="btn bg-secondary row-span-1 row-start-4 ">View Our Pricing</button>
+                <Link href='/marketplace' >
+                          <button className="btn bg-secondary row-span-1 row-start-4 ">View Our Pricing</button>
+                </Link>
                 <img src={database.src} alt="" className='col-span-1 col-start-1 row-span-full ' />
             </div>
             <div className='home-grid-container-2 pt-[90px] pb-[151px]'>
@@ -46,8 +52,10 @@ function index({setDirection}) {
                     Browse NFTs from your smartphone
                 </div>
                 <span className='font-normal text-lg leading-7 text-left tracking-normal w-[373px] font-outfit col-start-1 col-span-1 row-start-3 row-span-1 text-white'>Use our built-in analytics dashboard to pull valuable insights and monitor the value of your Krypto portfolio over time.</span>
-                <button className="btn bg-secondary row-span-1 row-start-4">View Our Pricing</button>
-                <img src={phone.src} alt="" className='col-span-1 col-start-2 row-span-full ' />
+                <Link href='/marketplace' > 
+                            <button className="btn bg-secondary row-span-1 row-start-4"> View Our Pricing</button>
+                 </Link>
+                <img src={phone.src} alt="" className='col-span-1 col-start-2 row-span-full pl-[150px] ' />
             </div>
             <Team />
             <div className='grid items-center justify-items-center grid-rows-3 h-[402px] rounded-3xl' style={{ background: 'linear-gradient(278.71deg, #ABD9D9 -20.32%, #5151C6 103.51%)'}}>

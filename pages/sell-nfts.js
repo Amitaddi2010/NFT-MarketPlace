@@ -4,6 +4,45 @@ import { ethers } from 'ethers'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { useRouter } from 'next/router'
 import Web3Modal from 'web3modal'
+import swal from 'sweetalert';
+import styled from "styled-components";
+import { Colors, Devices } from "./Theme";
+ /*  Styled */
+ 
+const TopCollectiblesEl = styled.article`
+display: flex;
+flex-direction: column;
+gap: 1rem;
+align-items: center;
+padding: 1rem;
+color: ${Colors.White};
+background-color: ${Colors.Background};
+
+
+@media ${Devices.Tablet} {
+  padding: 1rem 3rem;
+}
+@media ${Devices.Laptop} {
+  padding: 1rem 5%;
+}
+@media ${Devices.LaptopL} {
+  padding: 1rem 10%;
+}
+`;
+
+// const projectId = '2AvZQvz38z8tVJaxEi6i0BuPryU';
+// const projectSecret = 'dcf8e826b6e61495b75b5850fc369b99';
+// const auth =
+//     'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+
+// const client = ipfsHttpClient({
+//     host: 'ipfs.infura.io',
+//     port: 5001,
+//     protocol: 'https',
+//     headers: {
+//         authorization: auth,
+//     },
+// });
 
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 
@@ -32,6 +71,7 @@ export default function sellNFTs() {
       setFileUrl(url)
     } catch (error) {
       console.log('Error uploading file: ', error)
+      swal("Oops!", "Something went wrong!", "error");
     }
   }
   async function uploadToIPFS() {
@@ -48,6 +88,7 @@ export default function sellNFTs() {
       return url
     } catch (error) {
       console.log('Error uploading file: ', error)
+      swal("Oops!", "Something went wrong!", "error");
     }
   }
 
@@ -65,13 +106,20 @@ export default function sellNFTs() {
     listingPrice = listingPrice.toString()
     let transaction = await contract.createToken(url, price, { value: listingPrice })
     await transaction.wait()
-
+    swal("Your NFT is now Live, You can Check in the Marketplace Section ")
     router.push('/')
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-1/2 flex flex-col pb-12">
+    
+  <div className="bg-tert text-white  flex justify-center pt-20 ">
+     <div className=" w-1/2 flex flex-col pb-40">
+     {/* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */}
+    <div className=" overflow-hidden rounded shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)]">
+      <div className="px-12 py-8">
+       <div className="mb-2 text-xl font-bold"> Sell NFTs</div>
+       
+        <form className="flex flex-col">
         <input
           placeholder="Asset Name"
           className="mt-8 border rounded p-4"
@@ -102,7 +150,13 @@ export default function sellNFTs() {
         <button onClick={listNFTForSale} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
           Create NFT
         </button>
+        </form>
+       
       </div>
+      </div>
+      
     </div>
+    </div>
+  
   )
 }

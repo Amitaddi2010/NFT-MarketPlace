@@ -3,7 +3,7 @@ import { ethers } from 'ethers'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
-
+import swal from 'sweetalert';
 import {
   marketplaceAddress
 } from '../config'
@@ -40,7 +40,7 @@ export default function ResellNFT() {
     listingPrice = listingPrice.toString()
     let transaction = await contract.resellToken(id, priceFormatted, { value: listingPrice })
     await transaction.wait()
-   
+   swal(" Listed Successfully ")
     router.push('/')
   }
 
