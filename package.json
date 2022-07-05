@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.5",
+    "@heroicons/react": "^1.0.6",
     "@nomiclabs/hardhat-ethers": "^2.0.6",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/contracts": "^4.6.0",
     "@pinata/sdk": "^1.1.26",
+    "@popperjs/core": "^2.11.5",
     "axios": "^0.27.2",
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.4",
@@ -28,6 +31,7 @@
     "react-icons": "^4.3.1",
     "styled-components": "^5.3.5",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.4.19",
     "web3": "^1.7.4",
     "web3modal": "^1.9.8"
   },

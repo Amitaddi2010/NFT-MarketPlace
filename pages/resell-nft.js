@@ -3,7 +3,8 @@ import { ethers } from 'ethers'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
+import Head from 'next/head'
 import {
   marketplaceAddress
 } from '../config'
@@ -40,16 +41,36 @@ export default function ResellNFT() {
     listingPrice = listingPrice.toString()
     let transaction = await contract.resellToken(id, priceFormatted, { value: listingPrice })
     await transaction.wait()
-   swal(" Listed Successfully ")
-    router.push('/')
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your NFT has been Listed',
+      showConfirmButton: false,
+      timer: 1500
+    })
+   router.push('/')
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-1/2 flex flex-col pb-12">
+   
+    <div className="bg-tert text-white  flex justify-center pt-20">
+       <Head>
+            <title>Murals. NFT Marketplace</title>
+            <meta
+              name="description"
+              content="Cleaned create-next-app including styled-components and configured theme"
+            />
+            <link rel="icon" href="/public/favicon.ico" />
+      </Head>
+    <div className=" w-1/2 flex flex-col pb-[10%]">
+    <div className=" overflow-hidden rounded shadow-[0_35px_60px_-15px_rgba(255,255,255,0.3)]">
+      <div className="px-12 py-8">
+       <div className="mb-2 text-xl font-bold"> Sell NFTs</div>
+       <div className="flex flex-col">
+        
         <input
-          placeholder="Asset Price in Eth"
-          className="mt-2 border rounded p-4"
+          placeholder="Asset Price in Matic"
+          className="mt-2 border rounded p-4 text-black"
           onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
         />
         {
@@ -60,7 +81,12 @@ export default function ResellNFT() {
         <button onClick={listNFTForSale} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
           List NFT
         </button>
-      </div>
-    </div>
+
+        </div>
+        </div>
+       </div>
+       
+     </div>
+     </div>
   )
 }

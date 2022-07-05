@@ -15,7 +15,7 @@ import Imgpoly from "./../public/assets/imgs/polygon-matic.png"
 import Murals_logo from "./../public/assets/imgs/Murals_logo.png"
 import Hero from "./../components/Hero"
 import Button from "./../components/styled/Button.styled";
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 /*  Styled */
 const TopCollectiblesEl = styled.article`
@@ -215,19 +215,20 @@ export default function CreatorDashboard({setDirection}) {
     setNfts(items)
     setLoadingState('loaded') 
   }
-  if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 px-20 text-3xl">No NFTs listed</h1>)
+  if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 h-[100%] text-center  text-white  bg-tert px-20 text-3xl">No NFTs listed</h1> )
 
   
   return (
     <TopCollectiblesEl>
     <Head>
-<title>Murals. NFT Marketplace</title>
-<meta
-  name="description"
-  content="Cleaned create-next-app including styled-components and configured theme"
-/>
-<link rel="icon" href="/favicon.png" />
-</Head>
+          <title>Murals. NFT Marketplace</title>
+          <meta
+            name="description"
+            content="Cleaned create-next-app including styled-components and configured theme"
+          />
+         <link rel="icon" href="/public/favicon.ico" />
+    </Head>
+
  <Title>Your Listed Collectibles</Title>
  <TopSection>
    <Sort>Sales Volume</Sort>

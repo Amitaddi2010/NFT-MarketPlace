@@ -12,8 +12,8 @@ import Imgpoly from "./../public/assets/imgs/polygon-matic.png"
 import Murals_logo from "./../public/assets/imgs/Murals_logo.png"
 import Hero from "./../components/Hero"
 import Button from "./../components/styled/Button.styled";
-import swal from 'sweetalert';
-
+import Swal from 'sweetalert2';
+import Head from 'next/head';
 
 /*  Styled */
 const TopCollectiblesEl = styled.article`
@@ -244,13 +244,35 @@ export default function Marketplace({props}) {
     })
     await transaction.wait()
    
-    swal("Buying NFT Sucessfully , Happy Buying ");
+    // swal("Buying NFT Sucessfully , Happy Buying ");
+    Swal.fire({
+      title: ' Transection Completed, Please Check your Dashboard, Buy More NFTs, Happy NFTIFY.',
+      width: 600,
+      padding: '3em',
+      color: '#716add',
+      background: '#fff',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("/public/assets/nyan-cat.gif")
+        left top
+        no-repeat
+      `
+    })
     loadNFTs()
   }
 
-  if (loadingState === 'loaded' && !nfts.length) return (<h1>No items in marketplace</h1>)
+  if (loadingState === 'loaded' && !nfts.length) return (<h1 className='"py-10 h-[100%] text-center  text-white  bg-tert px-20 text-3xl"' >No items in marketplace</h1>)
   return (
+   
     <TopCollectiblesEl>
+       <Head>
+          <title>Murals. NFT Marketplace</title>
+          <meta
+            name="description"
+            content="Cleaned create-next-app including styled-components and configured theme"
+          />
+          <link rel="icon" href="/public/favicon.ico" />
+    </Head>
       <Hero />
     <Title>Marketplace</Title>
     <TopSection>

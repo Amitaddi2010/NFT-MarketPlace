@@ -1,7 +1,8 @@
 import { useLayoutEffect } from 'react'
- 
+ import Head from 'next/head'
  import Link from 'next/link'
 import {TeamCard} from '../components'
+
 
 //images
 import desktop from '../public/assets/imgs/desktop.png'
@@ -19,6 +20,14 @@ function index({setDirection}) {
     },[])
     return (
         <div className='bg-tert px-[190px]'>
+             <Head>
+                        <title>Murals. NFT Marketplace</title>
+                        <meta
+                        name="description"
+                        content="Cleaned create-next-app including styled-components and configured theme"
+                        />
+                       <link rel="icon" href="/public/favicon.ico" />
+            </Head>
             <div className='home-grid-container-1  bg-tert pt-24 h-[90vh]'>
                 <div className='font-bold not-italic capitalize font-outfit text-7xl w-[463px] col-span-2 col-start-1 text-white'>
                     discover and collect rare NFTs

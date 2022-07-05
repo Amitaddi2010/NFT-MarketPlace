@@ -16,7 +16,6 @@ import Murals_logo from "./../public/assets/imgs/Murals_logo.png"
 import Hero from "./../components/Hero"
 import Button from "./../components/styled/Button.styled";
 import swal from 'sweetalert';
- 
 
 const TopCollectiblesEl = styled.article`
   display: flex;
@@ -219,17 +218,18 @@ export default function MyAssets() {
     console.log('nft:', nft)
     router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`)
   }
-  if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 px-20 text-3xl">No NFTs owned</h1>)
+  if (loadingState === 'loaded' && !nfts.length) return (<h1 className="py-10 h-[100%] text-center  text-white  bg-tert px-20 text-3xl">No NFTs Owned</h1>)
   return (
-    <TopCollectiblesEl>  
+
+<TopCollectiblesEl>  
     <Head>
-   <title>Murals. NFT Marketplace</title>
-   <meta
-     name="description"
-     content="Cleaned create-next-app including styled-components and configured theme"
-   />
-   <link rel="icon" href="/favicon.png" />
- </Head>
+          <title>Murals. NFT Marketplace</title>
+          <meta
+            name="description"
+            content="Cleaned create-next-app including styled-components and configured theme"
+          />
+         <link rel="icon" href="/public/favicon.ico" />
+    </Head>
  <Title>MY Collectibles</Title>
  <TopSection>
    <Sort>Sales Volume</Sort>
@@ -239,7 +239,7 @@ export default function MyAssets() {
    {
      nfts.map((nft, i) => {
      return (
-       <div key={i} href="/asset" passHref>
+       <div key={i}>
          <a>
            {/* <NFTCard item={nft} /> */}
            <NFTCardEl>
