@@ -3,7 +3,8 @@ module.exports = {
     
     extend: {
       fontFamily: {
-        'outfit': ['Outfit', 'sans-serif']
+        'outfit': ['Outfit', 'sans-serif'],
+        'poppins': ['Outfit', 'sans-serif']
       },
       colors: {
         'link-blue': '#808292',
