@@ -5,6 +5,7 @@ import Web3Modal from 'web3modal';
 import {marketplaceAddress} from '../config';
 
 import NFTMarketplace from '../artifacts/contracts/nft.sol/NFTMarketplace.json'
+import NFTCard from '../components/NFTCard';
 
 export default function Marketplace({setDirection}) {
   const [nfts, setNfts] = useState([])
@@ -73,22 +74,13 @@ export default function Marketplace({setDirection}) {
   return (
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: '1600px' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-4">
           {
             nfts.map((nft, i) => (
-              <div key={i} className="border shadow rounded-xl overflow-hidden">
-                <img src={nft.image} />
-                <div className="p-4">
-                  <p style={{ height: '64px' }} className="text-2xl font-semibold">{nft.name}</p>
-                  <div style={{ height: '70px', overflow: 'hidden' }}>
-                    <p className="text-gray-400">{nft.description}</p>
-                  </div>
-                </div>
-                <div className="p-4 bg-black">
-                  <p className="text-2xl font-bold text-white">{nft.price} ETH</p>
-                  <button className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded" onClick={() => buyNft(nft)}>Buy</button>
-                </div>
-              </div>
+              <NFTCard {...{nft,i, buyNft,key:i, callback:{
+                func:buyNft,
+                label:'Buy'
+              }}} />
             ))
           }
         </div>
