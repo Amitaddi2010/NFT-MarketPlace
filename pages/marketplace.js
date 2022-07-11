@@ -72,7 +72,7 @@ export default function Marketplace({setDirection}) {
 
   if (loadingState === 'loaded' && !nfts.length) return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-tert">
       <div className="px-4" style={{ maxWidth: '1600px' }}>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-4">
           {
